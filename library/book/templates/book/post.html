@@ -1,0 +1,29 @@
+ {%extends 'book/base.html'%}
+
+ {% block title %} | {{book.id}} {% endblock %}
+ {% block main %}
+<article>
+    <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{book.image.url}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>{{book.name}}</h1>
+            <span class="subheading">{{book.writer}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          {{book.abstract|linebreaks}}
+        </div>
+      </div>
+    </div>
+  </article>
+ {% endblock %}

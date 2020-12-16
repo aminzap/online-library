@@ -1,0 +1,55 @@
+ {%extends 'book/base.html'%}
+ {%load static%}
+ {% block title %}{% endblock %}
+ {% block main %}
+   <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{%static 'book/img/home-bg.jpg'%}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Iran library</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+       {% for book in books %}
+        <div class="post-preview">
+          <a href="{% url 'single' book.id %}">
+            <h2 class="post-title">
+              {{book.name}}
+            </h2>
+            <h3 class="post-subtitle">
+              {{book.writer}}
+            </h3>
+
+          </a>
+          <p >
+            {{book.abstract|truncatewords:20}}
+          </p>
+          <p class="post-meta">
+            {{book.pub_date}}</p>
+            <div>
+                {%for cat in book.category.all%}
+                <a href="#"># {{cat.catName}}</a>
+                {%endfor%}
+            </div>
+
+
+        </div>
+        <hr>
+        {% endfor %}
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ {% endblock %}
