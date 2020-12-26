@@ -19,7 +19,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-       {% for book in books %}
+       {% for book in category.book.published %}
         <div class="post-preview">
           <a href="{% url 'single' book.id %}">
             <h2 class="post-title">
@@ -37,7 +37,7 @@
             {{book.pub_date}}</p>
             <div>
                 {%for cat in book.category_published.all%}
-                <a href="{%url 'category' cat.slug%}"># {{cat.catName}}</a>
+                <a href="#"># {{cat.catName}}</a>
                 {%endfor%}
             </div>
 
