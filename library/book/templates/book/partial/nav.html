@@ -1,12 +1,17 @@
-<div class="collapse navbar-collapse" id="navbarResponsive">
-    <ul class="navbar-nav ml-auto">
+<div class="collapse navbar-collapse " id="navbarResponsive">
+    <ul class="navbar-nav ml-auto nav">
         <li class="nav-item">
             <a class="nav-link" href="{%url 'list' %}">Home</a>
         </li>
         {%for cat in category%}
+        {%if cat.parent == None%}
         <li class="nav-item">
-            <a class="nav-link" href="{%url 'category' cat.slug%}">{{cat}}</a>
+            <a class="nav-link" href="{%url 'category' cat.slug%}">{{cat.catName}}</a>
+            {% if cat.children.active %}
+                {% include 'book/partial/category_nav.html' %}
+            {% endif %}
         </li>
-        {%endfor%}
+        {% endif %}
+        {% endfor %}
     </ul>
 </div>

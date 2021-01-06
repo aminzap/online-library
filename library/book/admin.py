@@ -14,4 +14,4 @@ class AdminBook(admin.ModelAdmin):
 
 @admin.register(models.Category)
 class CatAdmin(admin.ModelAdmin):
-    list_display = ('catName', 'status')
+    list_display = ('catName','parent', 'status')

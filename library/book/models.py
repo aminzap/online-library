@@ -1,10 +1,14 @@
 from django.db import models
 from shop.models import Shop
+from django.utils.text import slugify
 
 
 class BookManager(models.Manager):
     def published(self):
         return self.filter(status='p')
+class CategoryManager(models.Manager):
+    def active(self):
+        return self.filter(status=True)
 
 
 class Book(models.Model):
@@ -32,9 +36,14 @@ class Book(models.Model):
 
 
 class Category(models.Model):
+    parent=models.ForeignKey('self',on_delete=models.SET_NULL,related_name='children',default=None,blank=True,null=True)
     catName = models.CharField(max_length=15, verbose_name='category name')
     slug = models.SlugField(unique=True, max_length=50, null=True, blank=True)
     status = models.BooleanField(default=True, verbose_name='Do you want to show it?')
+    class Meta:
+        ordering=['parent__id','catName']
+
+    objects = CategoryManager()
 
     def __str__(self):
         return self.catName
