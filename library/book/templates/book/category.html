@@ -36,7 +36,7 @@
           <p class="post-meta">
             {{book.pub_date}}</p>
             <div>
-                {%for cat in book.category_published.all%}
+                {%for cat in book.category.active %}
                 <a href="#"># {{cat.catName}}</a>
                 {%endfor%}
             </div>

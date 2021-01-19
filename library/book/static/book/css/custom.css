@@ -15,9 +15,9 @@
 
         .nav li a {
             display: block;
-            padding: 20%;
+            padding: 2rem;
             text-decoration: none;
-            width: 200px;
+            width: 7rem;
             /* this is the width of the menu items */
             line-height: 35px;
             /* this is the hieght of the menu items */
@@ -32,7 +32,7 @@
         /* smaller font size for sub menu items */
 
         .nav li:hover {
-            background: none;
+            background:none;
         }
 
         /* highlights current hovered list item and the parent list items when hovering over sub menues */

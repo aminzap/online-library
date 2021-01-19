@@ -27,8 +27,8 @@ class Book(models.Model):
     status = models.CharField(max_length=1, choices=STATUS_CHOISES, blank=True)
 
 
-    def category_published(self):
-        return self.category.filter(status=True)
+    # def category_published(self):
+    #     return self.category.filter(status=True)
 
     objects = BookManager()
 

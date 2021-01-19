@@ -10,7 +10,7 @@ def bookList(request,page=1):
     book = paginator.get_page(page)
     contex = {"books": book,
               }
-    return render(request, 'book/index.html', context=contex)
+    return render(request, 'book/category list.html', context=contex)
 
 
 def singleBook(request, id):
