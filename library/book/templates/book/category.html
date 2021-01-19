@@ -37,7 +37,7 @@
             {{book.pub_date}}</p>
             <div>
                 {%for cat in book.category.active %}
-                <a href="#"># {{cat.catName}}</a>
+                <a href="{%url 'category' cat.slug%}"># {{cat.catName}}</a>
                 {%endfor%}
             </div>
 
