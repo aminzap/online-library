@@ -1,5 +1,6 @@
 from django.db import models
 from shop.models import Shop
+from django.contrib.auth.models import User
 from django.utils.text import slugify
 
 
@@ -25,6 +26,7 @@ class Book(models.Model):
     shop = models.ManyToManyField(Shop, blank=True)
     category = models.ManyToManyField("Category", related_name='book')
     status = models.CharField(max_length=1, choices=STATUS_CHOISES, blank=True)
+    creator=models.ForeignKey(User,on_delete=models.PROTECT,null=True, blank=True)
 
 
     # def category_published(self):

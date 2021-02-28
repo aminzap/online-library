@@ -47,12 +47,13 @@
             {% endfor %}
             <!-- Pager -->
             <div class="clearfix">
-                {%if books.has_previous%}
-                <a class="btn btn-primary float-right ml-3" href="{%url 'list' books.previous_page_number%}" lmargin=5px>previous page</a>
-                {%endif%}
                 {%if books.has_next%}
-                <a class="btn btn-primary float-right" href="{%url 'list' books.next_page_number%}">next page</a>
+                <a class="btn btn-primary float-right ml-3" href="{%url 'list' books.next_page_number%}"lmargin=5px>next page</a>
                 {%endif%}
+                {%if books.has_previous%}
+                <a class="btn btn-primary float-right" href="{%url 'list' books.previous_page_number%}" >previous page</a>
+                {%endif%}
+
             </div>
         </div>
     </div>

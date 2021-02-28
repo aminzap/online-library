@@ -19,7 +19,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-       {% for book in category.book.published %}
+       {% for book in books %}
         <div class="post-preview">
           <a href="{% url 'single' book.id %}">
             <h2 class="post-title">
@@ -47,7 +47,12 @@
         {% endfor %}
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+                {%if books.has_next%}
+                <a class="btn btn-primary float-right ml-3" href="{%url 'category' category.slug books.next_page_number%}"lmargin=5px>next page</a>
+                {%endif%}
+                {%if books.has_previous%}
+                <a class="btn btn-primary float-right" href="{%url 'category' category.slug books.previous_page_number%}" >previous page</a>
+                {%endif%}
         </div>
       </div>
     </div>
